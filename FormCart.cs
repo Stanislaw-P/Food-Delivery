@@ -39,6 +39,7 @@ namespace Food_Delivery
 
 		private void buttonCatalog_Click(object sender, EventArgs e)
 		{
+			users.Serialize();
 			FormShop formShop = new FormShop();
 			formShop.Show();
 
@@ -51,12 +52,17 @@ namespace Food_Delivery
 		{
 			switch (e.ColumnIndex)
 			{
-				case 5:
-					int idProduct = Convert.ToInt32(dataGridViewCart.Rows[e.RowIndex].Cells[0].Value);
-					users.CurrentUser.Cart.Increase(idProduct);
+				case 3:
+					int idProductForIncrease = Convert.ToInt32(dataGridViewCart.Rows[e.RowIndex].Cells[0].Value);
+					users.CurrentUser.Cart.Increase(idProductForIncrease);
 					users.CurrentUser.Cart.ShowCart(dataGridViewCart);
 					break;
-				default:
+				case 5:
+					int idProductForDecrease = Convert.ToInt32(dataGridViewCart.Rows[e.RowIndex].Cells[0].Value);
+					users.CurrentUser.Cart.Decrease(idProductForDecrease);
+					if (users.CurrentUser.Cart.GetAmountPorduct(idProductForDecrease) == 0)
+						users.CurrentUser.Cart.RemoveProduct(idProductForDecrease);
+					users.CurrentUser.Cart.ShowCart(dataGridViewCart);
 					break;
 			}
 		}
@@ -69,7 +75,7 @@ namespace Food_Delivery
 			this.Hide();
 		}
 
-		
+
 
 		private void FormCart_FormClosing(object sender, FormClosingEventArgs e)
 		{

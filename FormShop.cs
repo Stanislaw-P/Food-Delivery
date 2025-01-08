@@ -26,7 +26,7 @@ namespace Food_Delivery
 				Catalog.LoadFromFile();
 			listViewCatalog.Items.AddRange(Catalog.GetProductsToListViewItem());
 
-			
+
 		}
 
 		private void FormShop_FormClosing(object sender, FormClosingEventArgs e)
@@ -39,7 +39,7 @@ namespace Food_Delivery
 		{
 			FormLogin formLogin = new FormLogin();
 			formLogin.Show();
-			
+
 			this.Hide();
 		}
 
@@ -58,8 +58,10 @@ namespace Food_Delivery
 			{
 				int selectedProductId = int.Parse(listViewCatalog.SelectedItems[0].SubItems[3].Text);
 				Product selecterProduct = Catalog.GetProductById(selectedProductId);
-				users.CurrentUser.Cart.Add(selecterProduct);
-				
+				if (!users.CurrentUser.Cart.Contains(selecterProduct))
+					users.CurrentUser.Cart.Add(selecterProduct);
+				else
+					users.CurrentUser.Cart.Increase(selecterProduct);
 
 				//CartsRepository carts = CartsRepository.DeSerialize();
 				//Cart cartCurrentUser = CartsRepository.CurrentCart;

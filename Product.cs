@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Food_Delivery
 {
 	[Serializable]
-	public class Product
+	public class Product : IEquatable<Product>
 	{
 		public Product(string name, string typeOfProduct, decimal cost)
 		{
@@ -29,5 +29,10 @@ namespace Food_Delivery
 		{
 			return new string[] { Name, Cost.ToString(), TypeOfProduct, ID.ToString() };
 		}
-    }
+
+		public bool Equals(Product other)
+		{
+			return ID == other.ID;
+		}
+	}
 }

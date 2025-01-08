@@ -21,31 +21,11 @@ namespace Food_Delivery
 		public string UserPhoneNumber { get; }
 		private List<Product> items = new List<Product>();
 
-		public void Add(Product product) 
+		public void Add(Product product)
 		{
 			product.Amount++;
 			items.Add(product);
 		}
-
-		//public static void LoadFromFile(string fileName = "data/catalog.txt")
-		//{
-		//	using (StreamReader reader = new StreamReader(fileName))
-		//	{
-		//		string typeProduct = null;
-		//		while (!reader.EndOfStream)
-		//		{
-		//			string line = reader.ReadLine();
-		//			if (line.Contains('$'))
-		//			{
-		//				string[] temp = line.Split('$');
-		//				Product product = new Product(temp[0], typeProduct, Convert.ToDecimal(temp[1]));
-		//				items.Add(product);
-		//			}
-		//			else
-		//				typeProduct = line;
-		//		}
-		//	}
-		//}
 
 		public void ShowCart(DataGridView dataGrid)
 		{
@@ -62,6 +42,47 @@ namespace Food_Delivery
 			{
 				item.Amount++;
 			}
+		}
+
+		public void Increase(Product product)
+		{
+			foreach (var item in items.Where(it => it.Equals(product)))
+			{
+				item.Amount++;
+			}
+		}
+
+		public void Decrease(int idCartItem)
+		{
+			foreach (var item in items.Where(it => it.ID == idCartItem))
+			{
+				if(item.Amount > 0)
+					item.Amount--;
+			}
+		}
+
+		public bool Contains(Product product)
+		{
+			return items.Contains(product);
+		}
+
+		public int GetAmountPorduct(int idProduct)
+		{
+			try
+			{
+				return items.FirstOrDefault(item => item.ID == idProduct).Amount;
+
+			}
+			catch
+			{
+				throw new InvalidOperationException($"Продукта с ID:{idProduct} нет в корзине!");
+				throw;
+			}
+		}
+
+		public void RemoveProduct(int idProduct)
+		{
+			items.RemoveAll(product => product.ID == idProduct);
 		}
 	}
 }
