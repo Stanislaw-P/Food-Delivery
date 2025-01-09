@@ -63,12 +63,6 @@ namespace Food_Delivery
 			users.Add(newUser);		
 			users.Serialize();
 
-			//// Создаем сразу новую корзину для пользователя
-			//CartsRepository carts = CartsRepository.DeSerialize();
-			//Cart newCart = new Cart(maskedTextBoxPhoneNumber.Text);
-			//carts.Add(newCart);
-			//carts.Serialize();
-
 			FormLogin formLogin = new FormLogin();
 			formLogin.Show();
 			this.Hide();

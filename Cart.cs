@@ -93,5 +93,10 @@ namespace Food_Delivery
 		{
 			items.Clear();
 		}
+
+		public bool IsEmty()
+		{
+			return items.Count == 0;
+		}
 	}
 }

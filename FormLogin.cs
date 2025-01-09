@@ -53,7 +53,7 @@ namespace Food_Delivery
 				//carts.SetCurrentCartByPhoneNumber(maskedTextBoxPhoneNumber.Text);
 				users.CurrentUser = selectedUser;
 				users.Serialize();
-				FormShop formShop = new FormShop();
+				FormCatalog formShop = new FormCatalog();
 				formShop.Show();
 				Hide();
 			}

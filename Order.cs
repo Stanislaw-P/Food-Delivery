@@ -4,13 +4,13 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Food_Delivery
 {
+	[Serializable]
 	public class Order
 	{
-		public delegate void OrderHandler(User user, OrderEventArgs e);
-		public event OrderHandler OrderHasOccurred;
 		public User UserOwner { get; }
 		public decimal Cost { get; set; }
 		public string Address { get; }
@@ -26,9 +26,5 @@ namespace Food_Delivery
 		}
 
 		private static int idCounter = 0;
-		public void PlaceOrder()
-		{
-			OrderHasOccurred?.Invoke(UserOwner, new OrderEventArgs($"Заказ №{ID} оформлен.", Cost + 150, DateTime.Now.AddHours(1), Address));
-		}
 	}
 }

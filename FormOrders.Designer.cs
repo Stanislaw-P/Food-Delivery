@@ -1,6 +1,6 @@
 ﻿namespace Food_Delivery
 {
-	partial class FormCart
+	partial class FormOrders
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label5 = new System.Windows.Forms.Label();
@@ -39,32 +38,24 @@
 			this.labelUserName = new System.Windows.Forms.Label();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.buttonOrders = new System.Windows.Forms.Button();
 			this.buttonCatalog = new System.Windows.Forms.Button();
+			this.buttonCart = new System.Windows.Forms.Button();
 			this.buttonLogOut = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.dataGridViewCart = new System.Windows.Forms.DataGridView();
-			this.labelTotalCostCart = new System.Windows.Forms.Label();
-			this.buttonMakeOrder = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this.textBoxDeliveryAddress = new System.Windows.Forms.TextBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.decrease = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.add = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
 			this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.buttonClearCart = new System.Windows.Forms.Button();
+			this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.add = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewCart)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel2
@@ -156,8 +147,8 @@
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.SkyBlue;
-			this.panel1.Controls.Add(this.buttonOrders);
 			this.panel1.Controls.Add(this.buttonCatalog);
+			this.panel1.Controls.Add(this.buttonCart);
 			this.panel1.Controls.Add(this.buttonLogOut);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Controls.Add(this.pictureBox1);
@@ -166,22 +157,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(231, 694);
 			this.panel1.TabIndex = 2;
-			// 
-			// buttonOrders
-			// 
-			this.buttonOrders.BackColor = System.Drawing.Color.SkyBlue;
-			this.buttonOrders.FlatAppearance.BorderColor = System.Drawing.Color.White;
-			this.buttonOrders.FlatAppearance.BorderSize = 2;
-			this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonOrders.ForeColor = System.Drawing.Color.Black;
-			this.buttonOrders.Location = new System.Drawing.Point(12, 372);
-			this.buttonOrders.Name = "buttonOrders";
-			this.buttonOrders.Size = new System.Drawing.Size(206, 52);
-			this.buttonOrders.TabIndex = 13;
-			this.buttonOrders.Text = "Мои заказы";
-			this.buttonOrders.UseVisualStyleBackColor = false;
-			this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
 			// 
 			// buttonCatalog
 			// 
@@ -194,10 +169,26 @@
 			this.buttonCatalog.Location = new System.Drawing.Point(12, 314);
 			this.buttonCatalog.Name = "buttonCatalog";
 			this.buttonCatalog.Size = new System.Drawing.Size(206, 52);
-			this.buttonCatalog.TabIndex = 12;
+			this.buttonCatalog.TabIndex = 13;
 			this.buttonCatalog.Text = "Каталог";
 			this.buttonCatalog.UseVisualStyleBackColor = false;
 			this.buttonCatalog.Click += new System.EventHandler(this.buttonCatalog_Click);
+			// 
+			// buttonCart
+			// 
+			this.buttonCart.BackColor = System.Drawing.Color.SkyBlue;
+			this.buttonCart.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.buttonCart.FlatAppearance.BorderSize = 2;
+			this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonCart.ForeColor = System.Drawing.Color.Black;
+			this.buttonCart.Location = new System.Drawing.Point(12, 372);
+			this.buttonCart.Name = "buttonCart";
+			this.buttonCart.Size = new System.Drawing.Size(206, 52);
+			this.buttonCart.TabIndex = 12;
+			this.buttonCart.Text = "Корзина";
+			this.buttonCart.UseVisualStyleBackColor = false;
+			this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
 			// 
 			// buttonLogOut
 			// 
@@ -213,17 +204,16 @@
 			this.buttonLogOut.TabIndex = 6;
 			this.buttonLogOut.Text = "Выйти с аккаунта";
 			this.buttonLogOut.UseVisualStyleBackColor = false;
-			this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(59, 168);
+			this.label1.Location = new System.Drawing.Point(13, 168);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(109, 29);
+			this.label1.Size = new System.Drawing.Size(205, 29);
 			this.label1.TabIndex = 11;
-			this.label1.Text = "Корзина";
+			this.label1.Text = "История заказов";
 			// 
 			// pictureBox1
 			// 
@@ -241,108 +231,54 @@
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label2.Location = new System.Drawing.Point(663, 86);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(120, 32);
+			this.label2.Size = new System.Drawing.Size(199, 32);
 			this.label2.TabIndex = 12;
-			this.label2.Text = "Товары";
+			this.label2.Text = "Ваши заказы";
 			// 
-			// dataGridViewCart
+			// dataGridViewOrders
 			// 
-			this.dataGridViewCart.AllowUserToAddRows = false;
-			this.dataGridViewCart.AllowUserToDeleteRows = false;
-			this.dataGridViewCart.AllowUserToResizeRows = false;
-			this.dataGridViewCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dataGridViewOrders.AllowUserToAddRows = false;
+			this.dataGridViewOrders.AllowUserToDeleteRows = false;
+			this.dataGridViewOrders.AllowUserToResizeRows = false;
+			this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Product,
             this.sum,
-            this.add,
-            this.amount,
-            this.decrease});
-			this.dataGridViewCart.Location = new System.Drawing.Point(306, 121);
-			this.dataGridViewCart.Margin = new System.Windows.Forms.Padding(4);
-			this.dataGridViewCart.Name = "dataGridViewCart";
-			this.dataGridViewCart.ReadOnly = true;
-			this.dataGridViewCart.RowHeadersVisible = false;
-			this.dataGridViewCart.RowHeadersWidth = 51;
-			this.dataGridViewCart.Size = new System.Drawing.Size(631, 424);
-			this.dataGridViewCart.TabIndex = 15;
-			this.dataGridViewCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCart_CellContentClick);
+            this.add});
+			this.dataGridViewOrders.Location = new System.Drawing.Point(306, 134);
+			this.dataGridViewOrders.Margin = new System.Windows.Forms.Padding(4);
+			this.dataGridViewOrders.Name = "dataGridViewOrders";
+			this.dataGridViewOrders.ReadOnly = true;
+			this.dataGridViewOrders.RowHeadersVisible = false;
+			this.dataGridViewOrders.RowHeadersWidth = 51;
+			this.dataGridViewOrders.Size = new System.Drawing.Size(631, 424);
+			this.dataGridViewOrders.TabIndex = 16;
+			this.dataGridViewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_CellContentClick);
 			// 
-			// labelTotalCostCart
+			// Id
 			// 
-			this.labelTotalCostCart.AutoSize = true;
-			this.labelTotalCostCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelTotalCostCart.Location = new System.Drawing.Point(301, 560);
-			this.labelTotalCostCart.Name = "labelTotalCostCart";
-			this.labelTotalCostCart.Size = new System.Drawing.Size(181, 29);
-			this.labelTotalCostCart.TabIndex = 16;
-			this.labelTotalCostCart.Text = "Сумма заказа:";
+			this.Id.HeaderText = "Адрес";
+			this.Id.MinimumWidth = 6;
+			this.Id.Name = "Id";
+			this.Id.ReadOnly = true;
+			this.Id.Width = 150;
 			// 
-			// buttonMakeOrder
+			// Product
 			// 
-			this.buttonMakeOrder.BackColor = System.Drawing.Color.SkyBlue;
-			this.buttonMakeOrder.FlatAppearance.BorderColor = System.Drawing.Color.White;
-			this.buttonMakeOrder.FlatAppearance.BorderSize = 2;
-			this.buttonMakeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonMakeOrder.ForeColor = System.Drawing.Color.Black;
-			this.buttonMakeOrder.Location = new System.Drawing.Point(972, 255);
-			this.buttonMakeOrder.Name = "buttonMakeOrder";
-			this.buttonMakeOrder.Size = new System.Drawing.Size(246, 52);
-			this.buttonMakeOrder.TabIndex = 17;
-			this.buttonMakeOrder.Text = "Оформить заказ";
-			this.buttonMakeOrder.UseVisualStyleBackColor = false;
-			this.buttonMakeOrder.Click += new System.EventHandler(this.buttonMakeOrder_Click);
+			this.Product.HeaderText = "Стоимость";
+			this.Product.MinimumWidth = 6;
+			this.Product.Name = "Product";
+			this.Product.ReadOnly = true;
+			this.Product.Width = 80;
 			// 
-			// label6
+			// sum
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label6.Location = new System.Drawing.Point(967, 174);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(141, 29);
-			this.label6.TabIndex = 18;
-			this.label6.Text = "Ваш адрес:";
-			// 
-			// textBoxDeliveryAddress
-			// 
-			this.textBoxDeliveryAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBoxDeliveryAddress.Location = new System.Drawing.Point(972, 206);
-			this.textBoxDeliveryAddress.Name = "textBoxDeliveryAddress";
-			this.textBoxDeliveryAddress.Size = new System.Drawing.Size(246, 34);
-			this.textBoxDeliveryAddress.TabIndex = 19;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label7.Location = new System.Drawing.Point(967, 324);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(270, 25);
-			this.label7.TabIndex = 20;
-			this.label7.Text = "Стоимость доставки: 150р.";
-			// 
-			// decrease
-			// 
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-			this.decrease.DefaultCellStyle = dataGridViewCellStyle2;
-			this.decrease.FillWeight = 20F;
-			this.decrease.HeaderText = "Убавить";
-			this.decrease.MinimumWidth = 6;
-			this.decrease.Name = "decrease";
-			this.decrease.ReadOnly = true;
-			this.decrease.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.decrease.Text = "-";
-			this.decrease.Width = 45;
-			// 
-			// amount
-			// 
-			this.amount.HeaderText = "Количество";
-			this.amount.MinimumWidth = 6;
-			this.amount.Name = "amount";
-			this.amount.ReadOnly = true;
-			this.amount.Width = 55;
+			this.sum.HeaderText = "ID";
+			this.sum.MinimumWidth = 6;
+			this.sum.Name = "sum";
+			this.sum.ReadOnly = true;
+			this.sum.Width = 50;
 			// 
 			// add
 			// 
@@ -350,74 +286,28 @@
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.add.DefaultCellStyle = dataGridViewCellStyle1;
 			this.add.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.add.HeaderText = "Добавить";
+			this.add.HeaderText = "Удалить";
 			this.add.MinimumWidth = 6;
 			this.add.Name = "add";
 			this.add.ReadOnly = true;
-			this.add.Text = "+";
-			this.add.Width = 45;
+			this.add.Text = "--";
+			this.add.Width = 80;
 			// 
-			// sum
-			// 
-			this.sum.HeaderText = "Цена";
-			this.sum.MinimumWidth = 6;
-			this.sum.Name = "sum";
-			this.sum.ReadOnly = true;
-			this.sum.Width = 70;
-			// 
-			// Product
-			// 
-			this.Product.HeaderText = "Товар";
-			this.Product.MinimumWidth = 6;
-			this.Product.Name = "Product";
-			this.Product.ReadOnly = true;
-			this.Product.Width = 150;
-			// 
-			// Id
-			// 
-			this.Id.HeaderText = "ID";
-			this.Id.MinimumWidth = 6;
-			this.Id.Name = "Id";
-			this.Id.ReadOnly = true;
-			this.Id.Width = 50;
-			// 
-			// buttonClearCart
-			// 
-			this.buttonClearCart.BackColor = System.Drawing.Color.LightCyan;
-			this.buttonClearCart.FlatAppearance.BorderColor = System.Drawing.Color.White;
-			this.buttonClearCart.FlatAppearance.BorderSize = 2;
-			this.buttonClearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonClearCart.ForeColor = System.Drawing.Color.Black;
-			this.buttonClearCart.Location = new System.Drawing.Point(972, 493);
-			this.buttonClearCart.Name = "buttonClearCart";
-			this.buttonClearCart.Size = new System.Drawing.Size(246, 52);
-			this.buttonClearCart.TabIndex = 21;
-			this.buttonClearCart.Text = "Очистить корзину";
-			this.buttonClearCart.UseVisualStyleBackColor = false;
-			this.buttonClearCart.Click += new System.EventHandler(this.buttonClearCart_Click);
-			// 
-			// FormCart
+			// FormOrders
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1262, 743);
-			this.Controls.Add(this.buttonClearCart);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.textBoxDeliveryAddress);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.buttonMakeOrder);
-			this.Controls.Add(this.labelTotalCostCart);
-			this.Controls.Add(this.dataGridViewCart);
+			this.Controls.Add(this.dataGridViewOrders);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "FormCart";
+			this.Name = "FormOrders";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Доставка до калитки";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCart_FormClosed);
-			this.Load += new System.EventHandler(this.FormCart_Load);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOrders_FormClosing);
+			this.Load += new System.EventHandler(this.FormOrders_Load);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -426,7 +316,7 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewCart)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -440,26 +330,18 @@
 		private System.Windows.Forms.Button buttonLogOut;
 		private System.Windows.Forms.Label labelUserName;
 		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Button buttonCatalog;
+		private System.Windows.Forms.Button buttonCart;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.PictureBox pictureBox3;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.DataGridView dataGridViewCart;
-		private System.Windows.Forms.Label labelTotalCostCart;
-		private System.Windows.Forms.Button buttonMakeOrder;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox textBoxDeliveryAddress;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Button buttonOrders;
+		private System.Windows.Forms.Button buttonCatalog;
+		private System.Windows.Forms.DataGridView dataGridViewOrders;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product;
 		private System.Windows.Forms.DataGridViewTextBoxColumn sum;
 		private System.Windows.Forms.DataGridViewButtonColumn add;
-		private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-		private System.Windows.Forms.DataGridViewButtonColumn decrease;
-		private System.Windows.Forms.Button buttonClearCart;
 	}
 }

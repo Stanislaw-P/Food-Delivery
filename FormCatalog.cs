@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Food_Delivery
 {
-	public partial class FormShop : Form
+	public partial class FormCatalog : Form
 	{
 		UsersRepository users;
-		public FormShop()
+		public FormCatalog()
 		{
 			InitializeComponent();
 			users = UsersRepository.DeSerialize();
@@ -62,16 +62,19 @@ namespace Food_Delivery
 					users.CurrentUser.Cart.Add(selecterProduct);
 				else
 					users.CurrentUser.Cart.Increase(selecterProduct);
-
-				//CartsRepository carts = CartsRepository.DeSerialize();
-				//Cart cartCurrentUser = CartsRepository.CurrentCart;
-				////Cart cartCurrentUser = UsersRepository.CurrentUser.Cart;
-				//cartCurrentUser.Add(selecterProduct);
 			}
 			catch
 			{
 				MessageBox.Show("Выберите продукт!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+
+		private void buttonOrders_Click(object sender, EventArgs e)
+		{
+			FormOrders formOrders = new FormOrders();
+			formOrders.Show();
+
+			this.Hide();
 		}
 	}
 }

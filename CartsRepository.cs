@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Food_Delivery
 {
+	// Данный класс не нужен
 	[Serializable]
 	public class CartsRepository
 	{

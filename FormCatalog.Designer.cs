@@ -1,6 +1,6 @@
 ﻿namespace Food_Delivery
 {
-	partial class FormShop
+	partial class FormCatalog
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -37,6 +37,7 @@
 			this.labelUserName = new System.Windows.Forms.Label();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.buttonOrders = new System.Windows.Forms.Button();
 			this.buttonCart = new System.Windows.Forms.Button();
 			this.buttonLogOut = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -145,6 +146,7 @@
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.SkyBlue;
+			this.panel1.Controls.Add(this.buttonOrders);
 			this.panel1.Controls.Add(this.buttonCart);
 			this.panel1.Controls.Add(this.buttonLogOut);
 			this.panel1.Controls.Add(this.label1);
@@ -154,6 +156,22 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(231, 694);
 			this.panel1.TabIndex = 2;
+			// 
+			// buttonOrders
+			// 
+			this.buttonOrders.BackColor = System.Drawing.Color.SkyBlue;
+			this.buttonOrders.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.buttonOrders.FlatAppearance.BorderSize = 2;
+			this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonOrders.ForeColor = System.Drawing.Color.Black;
+			this.buttonOrders.Location = new System.Drawing.Point(12, 372);
+			this.buttonOrders.Name = "buttonOrders";
+			this.buttonOrders.Size = new System.Drawing.Size(206, 52);
+			this.buttonOrders.TabIndex = 14;
+			this.buttonOrders.Text = "Мои заказы";
+			this.buttonOrders.UseVisualStyleBackColor = false;
+			this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
 			// 
 			// buttonCart
 			// 
@@ -267,7 +285,7 @@
 			this.buttonAddToCart.UseVisualStyleBackColor = false;
 			this.buttonAddToCart.Click += new System.EventHandler(this.buttonAddToCart_Click);
 			// 
-			// FormShop
+			// FormCatalog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,7 +296,7 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "FormShop";
+			this.Name = "FormCatalog";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Доставка до калитки";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormShop_FormClosing);
@@ -317,5 +335,6 @@
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button buttonAddToCart;
+		private System.Windows.Forms.Button buttonOrders;
 	}
 }
