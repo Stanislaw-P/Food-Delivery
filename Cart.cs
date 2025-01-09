@@ -20,6 +20,10 @@ namespace Food_Delivery
 		public Guid ID { get; }
 		public string UserPhoneNumber { get; }
 		private List<Product> items = new List<Product>();
+		public decimal TotalCost
+		{
+			get => items.Sum(item => item.Cost * item.Amount);
+		}
 
 		public void Add(Product product)
 		{
@@ -56,7 +60,7 @@ namespace Food_Delivery
 		{
 			foreach (var item in items.Where(it => it.ID == idCartItem))
 			{
-				if(item.Amount > 0)
+				if (item.Amount > 0)
 					item.Amount--;
 			}
 		}
@@ -83,6 +87,11 @@ namespace Food_Delivery
 		public void RemoveProduct(int idProduct)
 		{
 			items.RemoveAll(product => product.ID == idProduct);
+		}
+
+		public void Clear()
+		{
+			items.Clear();
 		}
 	}
 }

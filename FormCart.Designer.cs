@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label5 = new System.Windows.Forms.Label();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,11 @@
 			this.add = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.decrease = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.labelTotalCostCart = new System.Windows.Forms.Label();
+			this.buttonMakeOrder = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.textBoxDeliveryAddress = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -270,9 +275,9 @@
 			// 
 			// add
 			// 
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.add.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.add.DefaultCellStyle = dataGridViewCellStyle1;
 			this.add.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.add.HeaderText = "Добавить";
 			this.add.MinimumWidth = 6;
@@ -291,9 +296,9 @@
 			// 
 			// decrease
 			// 
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-			this.decrease.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+			this.decrease.DefaultCellStyle = dataGridViewCellStyle2;
 			this.decrease.FillWeight = 20F;
 			this.decrease.HeaderText = "Убавить";
 			this.decrease.MinimumWidth = 6;
@@ -303,11 +308,70 @@
 			this.decrease.Text = "-";
 			this.decrease.Width = 45;
 			// 
+			// labelTotalCostCart
+			// 
+			this.labelTotalCostCart.AutoSize = true;
+			this.labelTotalCostCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.labelTotalCostCart.Location = new System.Drawing.Point(301, 560);
+			this.labelTotalCostCart.Name = "labelTotalCostCart";
+			this.labelTotalCostCart.Size = new System.Drawing.Size(181, 29);
+			this.labelTotalCostCart.TabIndex = 16;
+			this.labelTotalCostCart.Text = "Сумма заказа:";
+			// 
+			// buttonMakeOrder
+			// 
+			this.buttonMakeOrder.BackColor = System.Drawing.Color.SkyBlue;
+			this.buttonMakeOrder.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.buttonMakeOrder.FlatAppearance.BorderSize = 2;
+			this.buttonMakeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonMakeOrder.ForeColor = System.Drawing.Color.Black;
+			this.buttonMakeOrder.Location = new System.Drawing.Point(972, 255);
+			this.buttonMakeOrder.Name = "buttonMakeOrder";
+			this.buttonMakeOrder.Size = new System.Drawing.Size(246, 52);
+			this.buttonMakeOrder.TabIndex = 17;
+			this.buttonMakeOrder.Text = "Оформить заказ";
+			this.buttonMakeOrder.UseVisualStyleBackColor = false;
+			this.buttonMakeOrder.Click += new System.EventHandler(this.buttonMakeOrder_Click);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label6.Location = new System.Drawing.Point(967, 174);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(141, 29);
+			this.label6.TabIndex = 18;
+			this.label6.Text = "Ваш адрес:";
+			// 
+			// textBoxDeliveryAddress
+			// 
+			this.textBoxDeliveryAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.textBoxDeliveryAddress.Location = new System.Drawing.Point(972, 206);
+			this.textBoxDeliveryAddress.Name = "textBoxDeliveryAddress";
+			this.textBoxDeliveryAddress.Size = new System.Drawing.Size(246, 34);
+			this.textBoxDeliveryAddress.TabIndex = 19;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label7.Location = new System.Drawing.Point(967, 324);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(270, 25);
+			this.label7.TabIndex = 20;
+			this.label7.Text = "Стоимость доставки: 150р.";
+			// 
 			// FormCart
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1262, 743);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.textBoxDeliveryAddress);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.buttonMakeOrder);
+			this.Controls.Add(this.labelTotalCostCart);
 			this.Controls.Add(this.dataGridViewCart);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.panel1);
@@ -355,5 +419,10 @@
 		private System.Windows.Forms.DataGridViewButtonColumn add;
 		private System.Windows.Forms.DataGridViewTextBoxColumn amount;
 		private System.Windows.Forms.DataGridViewButtonColumn decrease;
+		private System.Windows.Forms.Label labelTotalCostCart;
+		private System.Windows.Forms.Button buttonMakeOrder;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox textBoxDeliveryAddress;
+		private System.Windows.Forms.Label label7;
 	}
 }

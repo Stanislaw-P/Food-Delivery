@@ -16,7 +16,9 @@ namespace Food_Delivery
 		public string Password { get; }
 		private static int idCounter = 0;
 		public Cart Cart { get; set; }
-        public User(string name, string phoneNumber, string password)
+		
+
+		public User(string name, string phoneNumber, string password)
 		{
 			Name = name;
 			PhoneNumber = phoneNumber;
@@ -38,5 +40,7 @@ namespace Food_Delivery
 		{
 			return toMD5(pass) == this.Password;
 		}
+
+		
 	}
 }
