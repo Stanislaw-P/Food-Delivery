@@ -40,7 +40,5 @@ namespace Food_Delivery
 		{
 			return toMD5(pass) == this.Password;
 		}
-
-		
 	}
 }

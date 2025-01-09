@@ -16,11 +16,6 @@ namespace Food_Delivery
 		private static Cart currentCart;
 		public static Cart CurrentCart => currentCart;
 
-		//public static Cart GetCartCurrentUser()
-		//{
-		//	return carts.FirstOrDefault(cart => cart.UserPhoneNumber == UsersRepository.CurrentUser.PhoneNumber);
-		//}
-
 		public void SetCurrentCartByPhoneNumber(string phoneNumber)
 		{
 			currentCart = FindByPhone(phoneNumber);

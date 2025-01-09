@@ -113,7 +113,5 @@ namespace Food_Delivery
 			users.Serialize();
 			Application.Exit();
 		}
-
-		
 	}
 }
