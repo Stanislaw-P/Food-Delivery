@@ -65,5 +65,15 @@ namespace Food_Delivery
 					break;
 			}
 		}
+
+		private void buttonLogOut_Click(object sender, EventArgs e)
+		{
+			users.Serialize();
+			orders.Serialize();
+			FormLogin formLogin = new FormLogin();
+			formLogin.Show();
+
+			this.Hide();
+		}
 	}
 }
