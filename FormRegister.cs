@@ -13,6 +13,7 @@ namespace Food_Delivery
 {
 	public partial class FormRegister : Form
 	{
+		UsersRepository users;
 		public FormRegister()
 		{
 			InitializeComponent();
@@ -57,20 +58,29 @@ namespace Food_Delivery
 
 			if (hasEmptyFields())
 				MessageBox.Show("Все поля должны быть заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			users = UsersRepository.DeSerialize();
+			if (userAlreadyExists(maskedTextBoxPhoneNumber.Text) == true)
+				MessageBox.Show("Пользователь с таким номером уже существует!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			else
+			{
+				User newUser = new User(textBoxUsername.Text, maskedTextBoxPhoneNumber.Text, textBoxPassword.Text);
+				users.Add(newUser);
+				users.Serialize();
 
-			UsersRepository users = UsersRepository.DeSerialize();
-			User newUser = new User(textBoxUsername.Text, maskedTextBoxPhoneNumber.Text, textBoxPassword.Text);
-			users.Add(newUser);		
-			users.Serialize();
-
-			FormLogin formLogin = new FormLogin();
-			formLogin.Show();
-			this.Hide();
+				FormLogin formLogin = new FormLogin();
+				formLogin.Show();
+				this.Hide();
+			}
 		}
 
 		private bool hasEmptyFields()
 		{
 			return string.IsNullOrEmpty(textBoxUsername.Text) || string.IsNullOrEmpty(maskedTextBoxPhoneNumber.Text) || string.IsNullOrEmpty(textBoxPassword.Text) || string.IsNullOrEmpty(textBoxPasswordC.Text);
+		}
+
+		private bool? userAlreadyExists(string phoneNumber)
+		{
+			return users?.IsUserExistence(phoneNumber);
 		}
 	}
 }

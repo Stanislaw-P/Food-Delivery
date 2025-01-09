@@ -25,6 +25,11 @@ namespace Food_Delivery
 			return Users.FirstOrDefault(us => us.PhoneNumber == phoneNumber);
 		}
 
+		public bool IsUserExistence(string phoneNumber)
+		{
+			return FindByPhone(phoneNumber) != null;
+		}
+
 		public void SetCurrentUserByPhoneNumber(string phoneNumber)
 		{
 			CurrentUser = FindByPhone(phoneNumber);
