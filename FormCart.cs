@@ -86,12 +86,18 @@ namespace Food_Delivery
 
 		private void buttonMakeOrder_Click(object sender, EventArgs e)
 		{
-			Order order = new Order(users.CurrentUser, users.CurrentUser.Cart.TotalCost, textBoxDeliveryAddress.Text);
-			order.OrderHasOccurred += DisplayMessageBoxOrder;
-			order.PlaceOrder();
+			if (textBoxDeliveryAddress.Text == null)
+				MessageBox.Show("Введите адрес доставки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+			{
+				Order order = new Order(users.CurrentUser, users.CurrentUser.Cart.TotalCost, textBoxDeliveryAddress.Text);
+				order.OrderHasOccurred += DisplayMessageBoxOrder;
+				order.PlaceOrder();
 
-			users.CurrentUser.Cart.Clear();
-			users.CurrentUser.Cart.ShowCart(dataGridViewCart);
+				users.CurrentUser.Cart.Clear();
+				users.CurrentUser.Cart.ShowCart(dataGridViewCart);
+			}
+			
 
 		}
 
